@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="UTF-8">
+	<title>Membership Registration Form</title>
+	<style>
+		#reg > p > label {
+			display: inline-block;
+			width: 90px;
+			padding-right: 1em;
+			text-align: right;
+		}
+	</style>
+	<script>
+		window.addEventListener("load", function () {
+			document.getElementById("reg").addEventListener("submit", function (event) {
+				var lenAccount = this.account.value.length;
+				var lenPasswd = this.passwd.value.length;
+				var lenName = this.name.value.length;
+				var lenEmail = this.email.value.length;
+
+				if (!lenAccount || !lenPasswd || !lenName || !lenEmail) {
+					window.alert("You must fill out all input forms!");
+					event.preventDefault();
+					return;
+				}
+			});
+		});
+	</script>
+</head>
+<body>
+	<h1>Membership Registration Form</h1>
+
+	<form action="member4" method="post" id="reg">
+		<p><label>Account: </label><input type="text" name="account"></p>
+		<p><label>Password: </label><input type="password" name="passwd"></p>
+		<p><label>Name: </label><input type="text" name="name"></p>
+		<p><label>Email: </label><input type="text" name="email"></p>
+		<p><input type="submit" name="submit" value="Register"></p>
+	</form>
+</body>
+</html>
