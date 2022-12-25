@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="UTF-8">
+	<title>Popup Test</title>
+	<script src="cookie.js"></script>
+	<script>
+		window.addEventListener("load", function () {
+			// 이름이 disablePopup인 쿠키의 값이 "true"가 아니면 팝업 창을 표시
+			if (getCookie("disablePopup") != "true")
+				window.open("popup.html", "popup", "width=400,height=500,status=no,menubar=no");
+
+			// #deleteCookie 요소의 click 이벤트 핸들러
+			document.getElementById("deleteCookie").addEventListener("click", function () {
+				deleteCookie("disablePopup");
+			});
+		});
+	</script>
+</head>
+<body>
+	<h1>Popup Test</h1>
+	<p>
+		<button id="deleteCookie">Delete Cookie</button>
+	</p>
+</body>
+</html>

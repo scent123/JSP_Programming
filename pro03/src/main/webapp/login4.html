@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="UTF-8">
+	<title>Login Form</title>
+	<script>
+		window.addEventListener("load", function () {
+
+			// 유효성 검사(form validation)
+			// → 입력 양식에 사용자가 입력한 값을 클라이언트에 검증하는 절차
+			document.getElementById("login").addEventListener("submit", function (event) {
+				var lengthAccount = this.account.value.length;
+				var lengthPassword = this.password.value.length;
+
+				if (lengthAccount <= 0 || lengthPassword <= 0) {
+					alert("You must enter your account and password!");
+					event.preventDefault();
+					return false;
+				}
+			});
+		});
+	</script>
+</head>
+<body>
+	<h1>Login Form</h1>
+	
+	<form action="login4" method="post" id="login">
+		<p>
+			<label>Account: <input type="text" name="account"></label>
+		</p>
+		<p>
+			<label>Password: <input type="password" name="password"></label>
+		</p>
+		<p>
+			<input type="submit" name="login" value="Login">
+		</p>
+	</form>
+	
+</body>
+</html>
